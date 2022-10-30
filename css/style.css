@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Dancing+Script:wght@400;500;600;700&family=Josefin+Sans:wght@100;200;300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto+Mono:wght@100;200;300;400;500;600;700&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 18px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #333333;
+    min-height: 100vh;
+    padding: 2em;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #c2c2c2;
+    border-top: 4px #fefefe solid;
+    border-left: 4px #fefefe solid;
+    border-bottom: 4px #787976 solid;
+    border-right: 4px #787976 solid;
+    padding: 1em;
+    gap: 1em;
+}
+
+.infoContainer {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    gap: 1em 0em;
+    padding: 1em;
+    border-top: 4px #787976 solid;
+    border-left: 4px #787976 solid;
+    border-bottom: 4px #fefefe solid;
+    border-right: 4px #fefefe solid;
+    text-align: center;
+}
+
+.infoContainer p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0em 1em;
+    font-weight: 600;
+}
+
+.minesText {
+    grid-column: 1/ -1;
+    padding: 0.5em;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.sizeSelector:hover {
+    background-color: #b3b3b3 !important;
+}
+
+.sizeSelector {
+    width: 8em;
+    height: 3em;
+    text-align: center;
+    background-color: #c2c2c2;
+    grid-column: 2/ -1;
+    font-weight: 700;
+}
+
+.maxMines:hover {
+    background-color: #b3b3b3 !important;
+}
+
+.maxMines {
+    width: 8em;
+    height: 3em;
+    text-align: center;
+    background-color: #c2c2c2;
+    grid-column: 2/ -1;
+    font-weight: 700;
+}
+
+.mineSize {
+    width: 3em;
+    height: 3em;
+    text-align: center;
+}
+
+.initializerButton:hover {
+    background-color: #b3b3b3 !important;
+}
+
+.initializerButton {
+    grid-column: 1/ -1;
+    background-color: #c2c2c2;
+    text-transform: uppercase;
+    padding: 0.5em;
+    font-weight: 600;
+    border-top: 4px #fefefe solid;
+    border-left: 4px #fefefe solid;
+    border-bottom: 4px #787976 solid;
+    border-right: 4px #787976 solid;
+}
+
+.boardContainer {
+    display: grid;
+    grid-template-columns: repeat(var(--size), auto);
+    grid-template-rows: repeat(var(--size), auto);
+    gap: 0;
+    padding: .25em;
+    min-width: 10em;
+    min-height: 10em;
+    border-top: 4px #787976 solid;
+    border-left: 4px #787976 solid;
+    border-bottom: 4px #fefefe solid;
+    border-right: 4px #fefefe solid;
+}
+
+.tile {
+    width: 2em;
+    height: 2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.boardContainer>:hover {
+    background-color: #b3b3b3 !important;
+}
+
+.boardContainer>[data-status="mine"]:hover {
+    background-color: #ff4747 !important;
+}
+
+.boardContainer>[data-status="marked"]:hover {
+    background-color: #b3b3b3 !important;
+}
+
+.boardContainer>[data-status="hidden"] {
+    background-color: #c2c2c2;
+    border-top: 4px #fefefe solid;
+    border-left: 4px #fefefe solid;
+    border-bottom: 4px #787976 solid;
+    border-right: 4px #787976 solid;
+    cursor: pointer;
+}
+
+.boardContainer>[data-status="mine"] {
+    background-color: tomato;
+    border-top: 4px #fefefe solid;
+    border-left: 4px #fefefe solid;
+    border-bottom: 4px #787976 solid;
+    border-right: 4px #787976 solid;
+}
+
+.boardContainer>[data-status="marked"] {
+    background-color: #c2c2c2;
+    border-top: 4px #fefefe solid;
+    border-left: 4px #fefefe solid;
+    border-bottom: 4px #787976 solid;
+    border-right: 4px #787976 solid;
+    cursor: pointer;
+    color: yellow;
+}
+
+.boardContainer>[data-status="number"] {
+    background-color: #c2c2c2;
+    border: 2px #787976 solid;
+}
+
+input[type=number] {
+    appearance: textfield;
+}
+
+#x1 {
+    color: blue;
+}
+
+#x2 {
+    color: green;
+}
+
+#x3 {
+    color: red;
+}
+
+#x4 {
+    color: purple;
+}
+
+#x5 {
+    color: maroon;
+}
+
+#x6 {
+    color: turquoise;
+}
+
+#x7 {
+    color: black;
+}
+
+#x8 {
+    color: gray;
+}
