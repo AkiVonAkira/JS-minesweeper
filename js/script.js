@@ -38,7 +38,7 @@ function Initialize() {
             if (!lose) {
                 tile.element.addEventListener("contextmenu", (e) => {
                     e.preventDefault();
-                    markTile(tile);
+                    markTile(tile, false);
                     listMinesLeft(board);
                 });
             }
@@ -77,7 +77,7 @@ function checkGameEnd(board) {
         minesLeftText.textContent = "You Lose!";
         board.forEach((row) => {
             row.forEach((tile) => {
-                if (tile.status === TILE_STATUSES.MARKED) markTile(tile);
+                if (tile.status === TILE_STATUSES.MARKED) markTile(tile, lose);
                 if (tile.mine) revealTile(board, tile);
             });
         });

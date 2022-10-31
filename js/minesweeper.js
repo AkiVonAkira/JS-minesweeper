@@ -33,15 +33,21 @@ export function createBoard(boardSize, numberOfMines) {
     return board;
 }
 
-export function markTile(tile) {
+export function markTile(tile, isLose) {
     if (
         tile.status !== TILE_STATUSES.HIDDEN &&
         tile.status !== TILE_STATUSES.MARKED
-    )
-        return;
+    ) return;
     if (tile.status === TILE_STATUSES.MARKED) {
         tile.status = TILE_STATUSES.HIDDEN;
         tile.element.innerHTML = "";
+        if (isLose) {
+            tile.element.innerHTML = "⚐";
+        }
+        if (!tile.mine) {
+            tile.element.innerHTML = "";
+
+        }
     } else {
         tile.status = TILE_STATUSES.MARKED;
         tile.element.innerHTML = "⚐";
@@ -52,7 +58,6 @@ export function revealTile(board, tile) {
     if (tile.status !== TILE_STATUSES.HIDDEN) return;
     if (tile.mine) {
         tile.status = TILE_STATUSES.MINE;
-        tile.element.innerHTML = "";
         return;
     }
     tile.status = TILE_STATUSES.NUMBER;
@@ -63,6 +68,9 @@ export function revealTile(board, tile) {
     } else {
         tile.element.textContent = mines.length;
         tile.element.id = `x${mines.length}`;
+    }
+    if (tile.status === TILE_STATUSES.MARKED) {
+        tile.element.innerHTML = "⚐";
     }
 }
 
